@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Desafio01_Druida_Final
+namespace POO_Proyecto_Final
 {
     public enum TipoHechizo
     {
@@ -83,7 +83,7 @@ namespace Desafio01_Druida_Final
         }
 
         // constructor ataque
-        public Hechizo(string nombre, TipoHechizo tipo, int nivel, int daño)
+        public Hechizo(string nombre, int nivel, int daño)
             : this(nombre, TipoHechizo.Ataque, nivel)
         {
             this.Daño = daño;
@@ -91,13 +91,43 @@ namespace Desafio01_Druida_Final
         }
 
         // constructor curacion
-        public Hechizo(string nombre, TipoHechizo tipo, int nivel, int curacion)
+        public Hechizo(string nombre, int nivel, int curacion, bool esCuracion)
             : this(nombre, TipoHechizo.Curacion, nivel)
         {
             this.Curacion = curacion;
             this.CostoMana = nivel;
         }
+
+        // constructor defensa
+        public Hechizo(string nombre, int nivel, int defensa, char tipoDefensa)
+            : this(nombre, TipoHechizo.Defensa, nivel)
+        {
+            this.Defensa = defensa;
+            this.CostoMana = nivel;
+        }
         #endregion
+
+        // ---------------- Lista estática de hechizos disponibles ----------------
+        public static List<Hechizo> ListaHechizosDisponibles { get; } = new List<Hechizo>
+        {
+            //curacion
+            
+            new Hechizo("Curar Heridas", 1, 8, true),
+            new Hechizo("Palabra de curacion", 5, 5, true),
+            new Hechizo("Curar Heridas en Masa", 10, 25, true),
+            new Hechizo("Curar", 15, 70, true),
+
+            // ataque
+            new Hechizo("Ola Atronadora", 1, 16),
+            new Hechizo("Rayo de Luna", 2, 20),
+            new Hechizo("Muro de viento", 5, 32),
+            new Hechizo("Marchitar", 10, 60),
+            new Hechizo("Tormenta de fuego", 15, 80),
+
+            // defensa
+            new Hechizo("Piel Robliza", 2, 8, 'D'),
+            new Hechizo("Escudo de fuego", 8, 25, 'D'),
+        };
 
         #region Metodos
 
