@@ -1,0 +1,10 @@
+# Archivos temporales de Visual Studio
+.vs/
+*.vsidx
+*.user
+*.suo
+*.db
+*.opendb
+bin/
+obj/
+
