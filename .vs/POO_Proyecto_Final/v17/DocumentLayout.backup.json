@@ -5,6 +5,14 @@
     {
       "AbsoluteMoniker": "D:0:0:{E0A873D0-77AC-42A8-B390-46BBDBDC7C18}|POO_Proyecto_Final\\POO_Proyecto_Final.csproj|c:\\users\\danil\\onedrive\\documentos\\cfp_programacion\\poo_proyecto_final\\poo_proyecto_final\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E0A873D0-77AC-42A8-B390-46BBDBDC7C18}|POO_Proyecto_Final\\POO_Proyecto_Final.csproj|solutionrelative:poo_proyecto_final\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E0A873D0-77AC-42A8-B390-46BBDBDC7C18}|POO_Proyecto_Final\\POO_Proyecto_Final.csproj|c:\\users\\danil\\onedrive\\documentos\\cfp_programacion\\poo_proyecto_final\\poo_proyecto_final\\druida.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E0A873D0-77AC-42A8-B390-46BBDBDC7C18}|POO_Proyecto_Final\\POO_Proyecto_Final.csproj|solutionrelative:poo_proyecto_final\\druida.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E0A873D0-77AC-42A8-B390-46BBDBDC7C18}|POO_Proyecto_Final\\POO_Proyecto_Final.csproj|c:\\users\\danil\\onedrive\\documentos\\cfp_programacion\\poo_proyecto_final\\poo_proyecto_final\\hechizo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E0A873D0-77AC-42A8-B390-46BBDBDC7C18}|POO_Proyecto_Final\\POO_Proyecto_Final.csproj|solutionrelative:poo_proyecto_final\\hechizo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,8 +22,34 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Hechizo.cs",
+              "DocumentMoniker": "C:\\Users\\danil\\OneDrive\\Documentos\\CFP_Programacion\\POO_Proyecto_Final\\POO_Proyecto_Final\\Hechizo.cs",
+              "RelativeDocumentMoniker": "POO_Proyecto_Final\\Hechizo.cs",
+              "ToolTip": "C:\\Users\\danil\\OneDrive\\Documentos\\CFP_Programacion\\POO_Proyecto_Final\\POO_Proyecto_Final\\Hechizo.cs",
+              "RelativeToolTip": "POO_Proyecto_Final\\Hechizo.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABAAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-02T17:38:53.562Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Druida.cs",
+              "DocumentMoniker": "C:\\Users\\danil\\OneDrive\\Documentos\\CFP_Programacion\\POO_Proyecto_Final\\POO_Proyecto_Final\\Druida.cs",
+              "RelativeDocumentMoniker": "POO_Proyecto_Final\\Druida.cs",
+              "ToolTip": "C:\\Users\\danil\\OneDrive\\Documentos\\CFP_Programacion\\POO_Proyecto_Final\\POO_Proyecto_Final\\Druida.cs",
+              "RelativeToolTip": "POO_Proyecto_Final\\Druida.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoBAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-02T17:37:05.564Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -24,7 +58,7 @@
               "RelativeDocumentMoniker": "POO_Proyecto_Final\\Program.cs",
               "ToolTip": "C:\\Users\\danil\\OneDrive\\Documentos\\CFP_Programacion\\POO_Proyecto_Final\\POO_Proyecto_Final\\Program.cs",
               "RelativeToolTip": "POO_Proyecto_Final\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-02T17:36:46.181Z",
               "EditorCaption": ""
