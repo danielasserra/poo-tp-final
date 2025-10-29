@@ -6,18 +6,19 @@ using System.Threading.Tasks;
 
 namespace POO_Proyecto_Final
 {
-    internal class Druida
+    internal class Druida : Personaje
     {
         #region Atributos
 
-        private string nombre;
-        private int nivel;
-        private int hpMax;
-        private int hpActual;
-        private int constitucion;
+        // estos atributos los paso a la clase base: PJ_Base
+        //private string nombre;
+        //private int nivel;
+        //private int hpMax;
+        //private int hpActual;
+        //private int constitucion;
+        //private bool consciente;
         private int manaMax;
         private int manaActual;
-        private bool consciente;
         private string formaSalvaje;
         private int formaSalvajeMax;
         private int formaSalvajeActual;
@@ -28,54 +29,54 @@ namespace POO_Proyecto_Final
 
         #region Propiedades
 
-        public string Nombre // se puede ver y modificar
-        {
-            get
-            {
-                return this.nombre;
-            }
-            set
-            {
-                this.nombre = value;
-            }
-        }
-        public int Nivel
-        {
-            get
-            {
-                return this.nivel;
-            }
-            private set // solo se modifica con metodo SubirNivel()
-            {
-                if (this.nivel < 0)
-                {
-                    this.nivel = 0;
-                }
-                else if (this.nivel > 20)
-                {
-                    this.nivel = 20;
-                }
-                this.nivel = value;
-            }
-        }
-        public int HpMax  // solo lectura porque se modifica mediante metodo
-        {                 // propiedad calculada, no va en constructor
-            get
-            {
-                return this.Nivel * 10; // nivel x 10 = vida
-            }
-        }
-        public int HpActual  // solo lectura porque se modifica mediante metodo (curarse(), defenderse()...)
-        {
-            get
-            {
-                return this.hpActual;
-            }
-            private set
-            {
-                this.hpActual = value;
-            }
-        }
+        //public string Nombre // se puede ver y modificar
+        //{
+        //    get
+        //    {
+        //        return this.nombre;
+        //    }
+        //    set
+        //    {
+        //        this.nombre = value;
+        //    }
+        //}
+        //public int Nivel
+        //{
+        //    get
+        //    {
+        //        return this.nivel;
+        //    }
+        //    private set // solo se modifica con metodo SubirNivel()
+        //    {
+        //        if (this.nivel < 0)
+        //        {
+        //            this.nivel = 0;
+        //        }
+        //        else if (this.nivel > 20)
+        //        {
+        //            this.nivel = 20;
+        //        }
+        //        this.nivel = value;
+        //    }
+        //}
+        //public int HpMax  // solo lectura porque se modifica mediante metodo
+        //{                 // propiedad calculada, no va en constructor
+        //    get
+        //    {
+        //        return this.Nivel * 10; // nivel x 10 = vida
+        //    }
+        //}
+        //public int HpActual  // solo lectura porque se modifica mediante metodo (curarse(), defenderse()...)
+        //{
+        //    get
+        //    {
+        //        return this.hpActual;
+        //    }
+        //    private set
+        //    {
+        //        this.hpActual = value;
+        //    }
+        //}
 
 
         public int ManaMax  // solo se puede ver porque se modifica mediante metodo
@@ -98,25 +99,25 @@ namespace POO_Proyecto_Final
             }                            // mantener todo más encapsulado y uniforme
         }
 
-        public int Constitucion
-        {
-            get
-            {
-                return (int)(this.HpMax * 0.25); // siempre 25% de la vida máxima actual
-            }
-        }
+        //public int Constitucion
+        //{
+        //    get
+        //    {
+        //        return (int)(this.HpMax * 0.25); // siempre 25% de la vida máxima actual
+        //    }
+        //}
 
-        public bool Consciente  // solo lectura porque se modifica mediante metodo
-        {
-            get
-            {
-                return this.consciente;
-            }
-            private set
-            {
-                this.consciente = value;
-            }
-        }
+        //public bool Consciente  // solo lectura porque se modifica mediante metodo
+        //{
+        //    get
+        //    {
+        //        return this.consciente;
+        //    }
+        //    private set
+        //    {
+        //        this.consciente = value;
+        //    }
+        //}
         public string FormaSalvaje  // solo lectura porque se modifica mediante metodo
         {
             get
@@ -150,12 +151,9 @@ namespace POO_Proyecto_Final
         #region Constructores
 
         public Druida(string nombre, int nivel)
+            : base(nombre, nivel)
         {
-            this.nombre = nombre;
-            this.nivel = nivel;
-            this.hpActual = this.hpMax; // inicia vida actual = vida maxima
-            this.manaActual = this.manaMax; // inicia energia magica actual = energia magica maxima
-            this.consciente = true;
+            this.manaActual = this.ManaMax; // inicia energia magica actual = energia magica maxima
             this.formaSalvaje = "Aun no se transformó";
             this.formaSalvajeActual = this.FormaSalvajeMax;
         }
@@ -164,21 +162,16 @@ namespace POO_Proyecto_Final
 
         #region Metodos
 
-        public string MostrarDruida()
+        public override string MostrarPersonaje()
         {
-            StringBuilder sb = new StringBuilder();
+            string infoBase = base.MostrarPersonaje();
 
-            sb.AppendLine("================= D&D =================");
-            sb.AppendLine("------------- CLASE DRUIDA -------------");
+            StringBuilder sb = new StringBuilder(infoBase);
 
-            sb.AppendLine($"\nNombre: {this.Nombre}");
-            sb.AppendLine($"\nNivel: {this.Nivel}");
-            sb.AppendLine($"\nVida: {this.HpActual} / {this.HpMax}");
-            sb.AppendLine($"\nCapacidad defensiva: " + this.Constitucion);
+            sb.AppendLine($"\nClase: Druida");
             sb.AppendLine($"\nForma Salvaje: " + this.FormaSalvaje);
             sb.AppendLine($"\nTransformaciones Disponibles: {this.FormaSalvajeActual} / {this.FormaSalvajeMax}");
             sb.AppendLine($"\nEnergía mágica Disponible: {this.ManaActual} / {this.ManaMax}");
-            sb.AppendLine($"\nEstá consciente: " + this.Consciente);
             sb.AppendLine("\n----------------------------------------");
             return sb.ToString();
         }
@@ -218,7 +211,7 @@ namespace POO_Proyecto_Final
             {
                 return;
             }
-            else if ((this.HpActual - puntosDeDaño) <= 0)
+            else if ((this.HpActual - puntosDeDaño) < 0)
             {
                 this.HpActual = 0;
                 this.Consciente = false;
@@ -264,4 +257,3 @@ namespace POO_Proyecto_Final
 // FALTA!!!
 
 // Atacar() - dañoAtaque - Mana
-// Ver metodos que falta completar

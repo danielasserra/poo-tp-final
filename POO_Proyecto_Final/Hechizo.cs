@@ -56,11 +56,11 @@ namespace POO_Proyecto_Final
         {
             get
             {
-                return nivel; // asignacion directa: CostoMana = nivel del hechizo.
+                return Nivel; // asignacion directa: CostoMana = nivel del hechizo.
             }
             private set
             {
-                CostoMana = nivel;
+                CostoMana = Nivel;
             }
         }
 
@@ -107,7 +107,7 @@ namespace POO_Proyecto_Final
         }
         #endregion
 
-        // ---------------- Lista estática de hechizos disponibles ----------------
+        // Lista estática de hechizos disponibles 
         public static List<Hechizo> ListaHechizosDisponibles { get; } = new List<Hechizo>
         {
             //curacion
