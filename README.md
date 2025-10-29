@@ -24,7 +24,7 @@ El proyecto consiste en un **generador de personajes inspirado en Dungeons & Dra
 🎯 Objetivos del proyecto
 - Aplicar los conceptos de **POO** en un proyecto práctico y completo  
 - Crear un sistema modular y escalable para generar personajes de D&D  
-- Integrar técnicas de herencia, polimorfismo y encapsulación  
+- Integrar técnicas de herencia, polimorfismo y encapsulamiento  
 - Documentar y organizar el código siguiendo buenas prácticas
 
 ---
