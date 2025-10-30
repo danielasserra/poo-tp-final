@@ -124,6 +124,10 @@ namespace POO_Proyecto_Final
             {
                 return this.formaSalvaje;
             }
+            private set
+            {
+                this.formaSalvaje = value;
+            }
         }
 
         public int FormaSalvajeMax
@@ -153,9 +157,9 @@ namespace POO_Proyecto_Final
         public Druida(string nombre, int nivel)
             : base(nombre, nivel)
         {
-            this.manaActual = this.ManaMax; // inicia energia magica actual = energia magica maxima
-            this.formaSalvaje = "Aun no se transformó";
-            this.formaSalvajeActual = this.FormaSalvajeMax;
+            this.ManaActual = this.ManaMax; // inicia energia magica actual = energia magica maxima
+            this.FormaSalvaje = "Aun no se transformó";
+            this.FormaSalvajeActual = this.FormaSalvajeMax;
         }
 
         #endregion
@@ -185,12 +189,12 @@ namespace POO_Proyecto_Final
                 this.formaSalvaje = animal;
                 this.manaActual -= 1;
                 this.formaSalvajeActual -= 1;
-                sb.AppendLine($"{nombre} convoca la fuerza de la naturaleza y se transforma en {animal}");
+                sb.AppendLine($"{this.nombre} convoca la fuerza de la naturaleza y se transforma en {animal}");
                 sb.AppendLine("El rugido del espíritu salvaje resuena en todo el bosque...");
             }
             else
             {
-                sb.AppendLine($"{nombre} intenta transformarse en {animal}, pero la magia falla...");
+                sb.AppendLine($"{this.nombre} intenta transformarse en {animal}, pero la magia falla...");
                 sb.AppendLine($"Energía actual: {this.ManaActual}, Transformaciones restantes: {this.formaSalvajeActual}");
                 sb.AppendLine("El poder de la transformación ha sido insuficiente. ¡El bosque guarda silencio ante tu intento fallido!");
             }
@@ -198,11 +202,24 @@ namespace POO_Proyecto_Final
         }
 
 
-        public void Descansar()
+        public override string Descansar()
         {
-            this.HpActual = this.HpMax;
-            this.ManaActual = this.ManaMax;
-            this.Consciente = true;
+            string infoBase = base.Descansar(); // llamo al metodo base
+            this.ManaActual = this.ManaMax; // añado elementos especificos
+            this.FormaSalvajeActual = this.FormaSalvajeMax;
+
+            StringBuilder sb = new StringBuilder(infoBase);
+
+            sb.AppendLine($"Su forma salvaje se renueva y su poder mágico alcanza su plenitud.");
+            sb.AppendLine($"Vida actual: {this.HpActual} | Magia actual: {this.ManaActual} | Transformaciones disponibles: {this.FormaSalvajeActual}");
+
+            return sb.ToString();
+        }
+
+        // Sobreescribiendo metodo para que funcione la clase, hay q modificarlo porq el Druida ataca con hechizos:
+        public override void Atacar(Personaje p, int puntosDeDaño)
+        {
+            p.RecibirDaño(puntosDeDaño);
         }
 
         public void Defenderse(int puntosDeDaño)
@@ -221,6 +238,12 @@ namespace POO_Proyecto_Final
                 this.HpActual -= puntosDeDaño;
             }
         }
+
+        // --------- METODO RECIBIR DAÑO ------------
+        // Heredado de clase padre Personaje
+        // No necesita ser declarado
+        // TENGO QUE MODIFICARLO con override porque el DRUIDA SE DEFIENDE CON HECHIZOS
+        // por ahora lo dejo asi para probar.
 
         public void Curarse(int puntosDeVida)
         {

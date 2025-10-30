@@ -9,13 +9,22 @@
 
             Console.WriteLine(D.MostrarPersonaje());
 
-            //-----------------------
+            //--------------------------------------------------
+
+            // Se transforma en animal
 
             Console.WriteLine("Ingrese el animal en el que se transforma el Druida: ");
             string FormaSalvaje = Console.ReadLine();
             Console.WriteLine(D.Transformarse(FormaSalvaje));
 
             Console.WriteLine("---------------------------------------");
+
+            Console.WriteLine(D.MostrarPersonaje());
+
+            Console.WriteLine("Presiona cualquier tecla para continuar tu aventura...");
+            Console.ReadKey(true);
+
+            Console.WriteLine(D.Descansar());
 
             Console.WriteLine(D.MostrarPersonaje());
 

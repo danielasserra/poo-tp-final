@@ -93,12 +93,12 @@ namespace POO_Proyecto_Final
         #endregion
 
         #region Constructor
-        protected Personaje(string nombre, int nivel)
+        public Personaje(string nombre, int nivel)
         {
-            this.nombre = nombre;
-            this.nivel = nivel;
-            this.hpActual = this.HpMax; // inicia vida actual = vida maxima
-            this.consciente = true;
+            this.Nombre = nombre;
+            this.Nivel = nivel;
+            this.HpActual = this.HpMax; // inicia vida actual = vida maxima
+            this.Consciente = true;
         }
 
         #endregion
@@ -122,7 +122,51 @@ namespace POO_Proyecto_Final
 
         }
 
-        public abstract void Atacar(); // cada clase hija debe implementar este método definiendo su propio ataque.
+        public abstract void Atacar(Personaje p, int puntosdeDaño); // cada clase hija debe implementar este método definiendo su propio ataque.
+
+        public virtual string RecibirDaño(int puntosDeDaño) // se pone en el metodo ataque del otro jugador
+        {
+
+            StringBuilder sb = new StringBuilder();
+
+            int daño = puntosDeDaño - this.Constitucion;
+            if (daño > 0)
+            {
+                daño = 0; // el daño no puede ser negativo.
+            }
+
+            if (daño > 0)
+            {
+                this.HpActual -= daño;
+
+                sb.AppendLine($"El ataque impacta con fuerza y causa {daño} puntos de daño a {this.nombre}.");
+            }
+            else
+            {    
+                sb.AppendLine($"{this.nombre} se mueve con maestria y ha logrado esquivar el ataque");  
+            }
+
+            if (this.HpActual <= 0)
+            {
+                HpActual = 0;
+                Consciente = false;
+                sb.AppendLine($"{this.nombre} ha caido inconsciente con la vida en 0.");
+            }
+            return sb.ToString();
+
+
+        }
+        public virtual string Descansar()
+        {
+            this.HpActual = this.HpMax;
+            this.Consciente = true;
+
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine($"Tras un profundo respiro, {this.nombre} siente cómo la energía vuelve a su cuerpo y espíritu.");
+
+            return sb.ToString();
+        }
 
 
         #endregion
