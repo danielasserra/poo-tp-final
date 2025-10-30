@@ -277,6 +277,3 @@ namespace POO_Proyecto_Final
 
     }
 }
-// FALTA!!!
-
-// Atacar() - dañoAtaque - Mana
