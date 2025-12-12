@@ -189,12 +189,12 @@ namespace POO_Proyecto_Final
                 this.formaSalvaje = animal;
                 this.manaActual -= 1;
                 this.formaSalvajeActual -= 1;
-                sb.AppendLine($"{this.nombre} convoca la fuerza de la naturaleza y se transforma en {animal}");
+                sb.AppendLine($"{this.Nombre} convoca la fuerza de la naturaleza y se transforma en {animal}");
                 sb.AppendLine("El rugido del espíritu salvaje resuena en todo el bosque...");
             }
             else
             {
-                sb.AppendLine($"{this.nombre} intenta transformarse en {animal}, pero la magia falla...");
+                sb.AppendLine($"{this.Nombre} intenta transformarse en {animal}, pero la magia falla...");
                 sb.AppendLine($"Energía actual: {this.ManaActual}, Transformaciones restantes: {this.formaSalvajeActual}");
                 sb.AppendLine("El poder de la transformación ha sido insuficiente. ¡El bosque guarda silencio ante tu intento fallido!");
             }

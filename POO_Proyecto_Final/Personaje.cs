@@ -130,7 +130,7 @@ namespace POO_Proyecto_Final
             StringBuilder sb = new StringBuilder();
 
             int daño = puntosDeDaño - this.Constitucion;
-            if (daño > 0)
+            if (daño < 0)
             {
                 daño = 0; // el daño no puede ser negativo.
             }
@@ -139,18 +139,18 @@ namespace POO_Proyecto_Final
             {
                 this.HpActual -= daño;
 
-                sb.AppendLine($"El ataque impacta con fuerza y causa {daño} puntos de daño a {this.nombre}.");
+                sb.AppendLine($"El ataque impacta con fuerza y causa {daño} puntos de daño a {this.Nombre}.");
             }
             else
-            {    
-                sb.AppendLine($"{this.nombre} se mueve con maestria y ha logrado esquivar el ataque");  
+            {
+                sb.AppendLine($"{this.Nombre} se mueve con maestria y ha logrado esquivar el ataque");
             }
 
             if (this.HpActual <= 0)
             {
                 HpActual = 0;
                 Consciente = false;
-                sb.AppendLine($"{this.nombre} ha caido inconsciente con la vida en 0.");
+                sb.AppendLine($"{this.Nombre} ha caido inconsciente con la vida en 0.");
             }
             return sb.ToString();
 
@@ -163,7 +163,7 @@ namespace POO_Proyecto_Final
 
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendLine($"Tras un profundo respiro, {this.nombre} siente cómo la energía vuelve a su cuerpo y espíritu.");
+            sb.AppendLine($"Tras un profundo respiro, {this.Nombre} siente cómo la energía vuelve a su cuerpo y espíritu.");
 
             return sb.ToString();
         }

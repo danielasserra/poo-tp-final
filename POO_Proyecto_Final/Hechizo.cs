@@ -16,17 +16,15 @@ namespace POO_Proyecto_Final
     }
     internal class Hechizo
     {
-        #region Atributos
+        #region ======= ATRIBUTOS =======
 
         private string nombre;
         private TipoHechizo tipo;
         private int nivel; // si no tiene suficiente nivel, no puede realizar el hechizo
-        private int costoMana; // si no tiene suficiente mana, no puede realizar el hechizo
-
 
         #endregion
 
-        #region Propiedades
+        #region ======= PROPIEDADES =======
 
         public string Nombre
         {
@@ -52,19 +50,18 @@ namespace POO_Proyecto_Final
             }
         }
 
+        // AUTOCALCULADA — SIEMPRE vale el nivel del hechizo
         public int CostoMana
         {
             get
             {
                 return Nivel; // asignacion directa: CostoMana = nivel del hechizo.
-            }
-            private set
-            {
-                CostoMana = Nivel;
-            }
+            }                 // sin SET porq siempre vale el nivel del hechizo
+
         }
 
-        public int Daño { get; private set; } = 0; // auto-referencial 
+        // AUTORREFERENCIADAS - no tienen atributo
+        public int Daño { get; private set; } = 0;
 
         public int Curacion { get; private set; } = 0;
 
@@ -72,7 +69,7 @@ namespace POO_Proyecto_Final
 
         #endregion
 
-        #region Constructor
+        #region ======= CONSTRUCTOR =======
 
         // constructor genérico
         public Hechizo(string nombre, TipoHechizo tipo, int nivel)
@@ -82,55 +79,55 @@ namespace POO_Proyecto_Final
             this.nivel = nivel;
         }
 
-        // constructor ataque
-        public Hechizo(string nombre, int nivel, int daño)
-            : this(nombre, TipoHechizo.Ataque, nivel)
+        #region ======= METODOS FABRICA =======
+        // No son constructores, crean objetos
+        // Es una función que devuelve hechizos armados
+
+        public static Hechizo CrearAtaque(string nombre, int nivelRequerido, int daño)
         {
-            this.Daño = daño;
-            this.CostoMana = nivel;
+            Hechizo h = new Hechizo(nombre, TipoHechizo.Ataque, nivelRequerido);
+            h.Daño = daño;
+            return h;
         }
 
-        // constructor curacion
-        public Hechizo(string nombre, int nivel, int curacion, bool esCuracion)
-            : this(nombre, TipoHechizo.Curacion, nivel)
+        public static Hechizo CrearCuracion(string nombre, int nivelRequerido, int curacion)
         {
-            this.Curacion = curacion;
-            this.CostoMana = nivel;
+            Hechizo h = new Hechizo(nombre, TipoHechizo.Curacion, nivelRequerido);
+            h.Curacion = curacion;
+            return h;
         }
 
-        // constructor defensa
-        public Hechizo(string nombre, int nivel, int defensa, char tipoDefensa)
-            : this(nombre, TipoHechizo.Defensa, nivel)
+        public static Hechizo CrearDefensa(string nombre, int nivelRequerido, int defensa)
         {
-            this.Defensa = defensa;
-            this.CostoMana = nivel;
+            Hechizo h = new Hechizo(nombre, TipoHechizo.Defensa, nivelRequerido);
+            h.Defensa = defensa;
+            return h;
         }
+
         #endregion
 
+        #region ===== LISTA ESTÁTICA DE HECHIZOS =====
         // Lista estática de hechizos disponibles 
+
         public static List<Hechizo> ListaHechizosDisponibles { get; } = new List<Hechizo>
         {
-            //curacion
-            
-            new Hechizo("Curar Heridas", 1, 8, true),
-            new Hechizo("Palabra de curacion", 5, 5, true),
-            new Hechizo("Curar Heridas en Masa", 10, 25, true),
-            new Hechizo("Curar", 15, 70, true),
+            // Curación
+            CrearCuracion("Curar Heridas", 1, 8),
+            CrearCuracion("Palabra de Curacion", 5, 5),
+            CrearCuracion("Curar Heridas en Masa", 10, 25),
+            CrearCuracion("Curar", 15, 70),
 
-            // ataque
-            new Hechizo("Ola Atronadora", 1, 16),
-            new Hechizo("Rayo de Luna", 2, 20),
-            new Hechizo("Muro de viento", 5, 32),
-            new Hechizo("Marchitar", 10, 60),
-            new Hechizo("Tormenta de fuego", 15, 80),
+            // Ataque
+            CrearAtaque("Ola Atronadora", 1, 16),
+            CrearAtaque("Rayo de Luna", 2, 20),
+            CrearAtaque("Muro de Viento", 5, 32),
+            CrearAtaque("Marchitar", 10, 60),
+            CrearAtaque("Tormenta de Fuego", 15, 80),
 
-            // defensa
-            new Hechizo("Piel Robliza", 2, 8, 'D'),
-            new Hechizo("Escudo de fuego", 8, 25, 'D'),
+            // Defensa
+            CrearDefensa("Piel Robliza", 2, 8),
+            CrearDefensa("Escudo de Fuego", 8, 25)
         };
-
-        #region Metodos
-
 
         #endregion
     }
